@@ -1,1 +1,54 @@
-
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    justify-content: space-between  ;
+    flex-direction: row;
+}
+iframe {
+    height: 480px;
+    width: 480px;
+    display: allowFullScreen;
+}
+.memePage1,.memePage2{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#searchDiv {
+    display: flex;
+    flex-direction: row-reverse;
+}
+#searchLogo {
+    width: 40px;
+    height: 40px;
+}
+.movieInfo{
+    visibility: hidden;
+    width: 500px;
+    padding: 1px 8px;
+    border: dotted black 5px;
+    border-radius: 5px;
+}
+.error {
+    visibility: hidden;
+}
+.active {
+    visibility: visible;
+}
+input {
+    width: 500px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: large;
+}
+button {
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: large;
+}
