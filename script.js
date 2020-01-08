@@ -73,3 +73,10 @@ document.querySelector('input').onfocus = function() {
 document.querySelector('input').onblur = function() {
     document.querySelector('input').setAttribute('placeholder', 'Search for movies');
 };
+
+document.querySelector('input').addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      document.querySelector('#searchLogo').click();
+    }
+  });
+  
