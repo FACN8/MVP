@@ -11,7 +11,7 @@ var getMeme ={
     meme5: "https://giphy.com/gifs/YktsTX3bbOy6Tlhcyh/html5",
     meme6: "https://giphy.com/gifs/YktsTX3bbOy6Tlhcyh/html5"
 };
-let movieName ="";
+var movieName = getlink.fallback;
 function fetchData(url, callback) {
     fetch(url)
     .then(function(response) {
@@ -26,6 +26,7 @@ function fetchData(url, callback) {
 }
 function crelement(s) { return document.createElement(s); }
 function click() {
+    activate(makeObj);
 
     movieName =document.getElementById('search').value;
     var url = getlink.domain+movieName+getlink.apikey;
@@ -37,14 +38,6 @@ function click() {
             fetchData(url,  fn)
         } else {
             document.querySelector('.movieInfo').className += ' active';
-
-            document.querySelector('.memePage1').innerHTML =  ''
-            +'<iframe ult="meme1" src="'+getMeme.meme1+'" allowFullScreen></iframe>'
-            +'<iframe ult="meme2" src="'+getMeme.meme2+'" allowFullScreen></iframe>'
-            +'<iframe ult="meme3" src="'+getMeme.meme3+'" allowFullScreen></iframe>'
-            +'<iframe ult="meme4" src="'+getMeme.meme4+'" allowFullScreen></iframe>'
-            +'<iframe ult="meme5" src="'+getMeme.meme5+'" allowFullScreen></iframe>'
-            +'<iframe ult="meme6" src="'+getMeme.meme6+'" allowFullScreen></iframe>';
         
             document.querySelector('.movieInfo').innerHTML =  ''
             +'<a href="https://www.imdb.com/title/' + data.imdbID + '"><center><h2>'+ data.Title +'</h2>'
@@ -73,6 +66,7 @@ function click() {
     })
 }
 document.getElementById('searchLogo').onclick = click;
+
 document.querySelector('input').onfocus = function() {
     document.querySelector('input').setAttribute('placeholder', '');
 };
