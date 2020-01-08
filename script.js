@@ -1,6 +1,6 @@
 var getlink ={
     apikey: "&plot=full&apikey=854b6e7a",
-    domain: "http://www.omdbapi.com/?t=",
+    domain: "https://www.omdbapi.com/?t=",
     fallback: "IT"
 };
 var getMeme ={
