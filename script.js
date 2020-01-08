@@ -33,7 +33,7 @@ function fetchData(search, callback) {
 }
 function crelement(s) { return document.createElement(s); }
 function click() {
-    fetchData(document.getElementById('search').value, function fn(data) {
+    fetchData(document.querySelector('#search').value, function fn(data) {
         if (data.Response == "False") {
             document.querySelector('.error').className += ' active';
             fetchData(getlink.fallback,  fn)
@@ -52,20 +52,34 @@ function click() {
 
             document.querySelector('.movieInfo').innerHTML =  ''
             +'<a href="https://www.imdb.com/title/' + data.imdbID + '"><center><h2>'+ data.Title +'</h2>'
-            +'<img ult="Poster" src="'+data.Poster+'"></center></a>'
-            +'<p><b>Released:</b> '+data.Released+'</p>'
-            +'<p><b>Runtime:</b> '+data.Runtime+'</p>'
-            +'<p><b>Genre:</b> '+data.Genre+'</p>'
-            +'<p><b>Director(s):</b> '+data.Director+'</p>'
-            +'<p><b>Writer(s):</b> '+data.Writer+'</p>'
-            +'<p><b>Plot:</b> '+data.Plot+'</p>'
-            +'<p><b>Language:</b> '+data.Language+'</p>'
-            +'<p><b>Country:</b> '+data.Country+'</p>'
-            +'<p><b>Awards:</b> '+data.Awards+'</p>'
-            +'<p><b>IMDB Rating:</b> '+data.imdbRating+'</p>'
-            +'<p><b>Box Office:</b> '+data.BoxOffice+'</p>'
-            +'<p><b>Production:</b> '+data.Production+'</p>';
+            +'<img ult="Poster" src="'+data.Poster+'"></center></a>';
+            
+            var exceptions = ['Poster', 'Ratings', 'Response'];
+
+            Object.keys(data).forEach((key) => {
+                var header = key;
+                
+                /* FORMATTER, TO BE CONTINUED
+                for (var i = 1; i < header.length; i++) {
+                    if (header[i] == header[i].toUpperCase()) {
+                        header = header.substring(0, 1).toUpperCase()
+                        + header.substring(1, i)
+                        + ' '
+                        + header.substring(i, header.length);
+                    }
+                }*/
+
+                if (exceptions.includes(key) || data[key] == "N/A") return;
+                document.querySelector('.movieInfo').innerHTML +=
+                '<p><b>' + header + ':</b> ' + data[key] + '</p>';
+            });
         }
     })
 }
-document.getElementById('confirm').onclick = click;
+document.getElementById('searchLogo').onclick = click;
+document.querySelector('input').onfocus = function() {
+    document.querySelector('input').setAttribute('placeholder', '');
+};
+document.querySelector('input').onblur = function() {
+    document.querySelector('input').setAttribute('placeholder', 'Search for movies');
+};

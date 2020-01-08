@@ -3,8 +3,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url("./res/bg.webp");
 }
-.container{
+.container {
     display: flex;
     justify-content: space-between  ;
     flex-direction: row;
@@ -14,7 +15,7 @@ iframe {
     width: 480px;
     display: allowFullScreen;
 }
-.memePage1,.memePage2{
+.memePage1,.memePage2 {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -24,13 +25,16 @@ iframe {
     flex-direction: row-reverse;
 }
 #searchLogo {
-    width: 40px;
-    height: 40px;
+    margin-left: 15px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
 }
-.movieInfo{
+.movieInfo {
     visibility: hidden;
     width: 500px;
-    padding: 1px 8px;
+    padding-left: 8px;
+    padding-right: 8px;
     border: dotted black 5px;
     border-radius: 5px;
 }
@@ -43,8 +47,13 @@ iframe {
 input {
     width: 500px;
     height: 40px;
-    border-radius: 30px;
+    border-radius: 20px;
     font-size: large;
+    padding-left: 15px;
+    padding-right: 15px;
+    outline: 0;
+    border: solid rgb(168, 168, 168) 1px;
+    background-color: rgb(245, 245, 245);
 }
 button {
     width: 100px;
