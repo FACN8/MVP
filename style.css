@@ -3,6 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 600px;
 }
 .container{
     display: flex;
@@ -10,11 +11,10 @@ body {
     flex-direction: row;
 }
 iframe {
-    height: 480px;
+    height: 265px;
     width: 480px;
-    display: allowFullScreen;
 }
-.memePage1,.memePage2{
+.memePage1{
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,41 @@ iframe {
     padding: 1px 8px;
     border: dotted black 5px;
     border-radius: 5px;
+    font-size: 18px;
+}
+.boxOffice{
+    
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+
+}
+th, td {
+    font-weight: unset;
+    padding-right: 10px;
+    line-height: 1.4;
+    font-family: Lato-Bold;
+}
+th {
+  
+    font-size: 18px;
+    color: #fff;  
+    background-color: #6c7ae0;
+}
+td{
+    
+     font-size: 15px;
+    color: gray;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 2px;
 }
 .error {
     visibility: hidden;
@@ -51,4 +86,28 @@ button {
     height: 40px;
     border-radius: 30px;
     font-size: large;
+}
+.topRank,.topRelease, td{
+    width: 46px;
+    height: 29px;
+    min-width: 46px;
+    min-height: 29px;
+}
+.contentSize,.topRelease{
+    width: 250;
+    padding-left: 40px;
+}
+.Topcontent1{
+    font-size: 18px;
+    text-align: center;
+background-color: beige;
+}
+.Topcontent2{
+    font-size: 18px;
+    text-align: center;
+    background-color: skyblue;
+
+}
+.tophead{
+    text-align: center;
 }

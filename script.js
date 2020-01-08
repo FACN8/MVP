@@ -11,15 +11,8 @@ var getMeme ={
     meme5: "https://giphy.com/gifs/YktsTX3bbOy6Tlhcyh/html5",
     meme6: "https://giphy.com/gifs/YktsTX3bbOy6Tlhcyh/html5"
 };
-function fetchData(search, callback) {
-
-    if (search.includes(' ')) {
-        var Movie = search.split(" ")[0]+"+"+search.split(" ")[1];
-    } else {
-        Movie = search;
-    }
-
-    var url = getlink.domain+Movie+getlink.apikey;
+let movieName ="";
+function fetchData(url, callback) {
     fetch(url)
     .then(function(response) {
         return response.json();
@@ -33,23 +26,24 @@ function fetchData(search, callback) {
 }
 function crelement(s) { return document.createElement(s); }
 function click() {
-    fetchData(document.getElementById('search').value, function fn(data) {
+    movieName =document.getElementById('search').value;
+    var url = getlink.domain+movieName+getlink.apikey;
+    fetchData(url, function fn(data) {
         if (data.Response == "False") {
             document.querySelector('.error').className += ' active';
-            fetchData(getlink.fallback,  fn)
+            url = getlink.domain+getlink.fallback+getlink.apikey;
+            fetchData(url,  fn)
         } else {
             document.querySelector('.movieInfo').className += ' active';
 
             document.querySelector('.memePage1').innerHTML =  ''
-            +'<iframe ult="meme1" src="'+getMeme.meme1+'"></iframe>'
-            +'<iframe ult="meme2" src="'+getMeme.meme2+'"></iframe>'
-            +'<iframe ult="meme3" src="'+getMeme.meme3+'"></iframe>';
-
-            document.querySelector('.memePage2').innerHTML =  ''
-            +'<iframe ult="meme4" src="'+getMeme.meme1+'"></iframe>'
-            +'<iframe ult="meme5" src="'+getMeme.meme2+'"></iframe>'
-            +'<iframe ult="meme6" src="'+getMeme.meme3+'"></iframe>';
-
+            +'<iframe ult="meme1" src="'+getMeme.meme1+'" allowFullScreen></iframe>'
+            +'<iframe ult="meme2" src="'+getMeme.meme2+'" allowFullScreen></iframe>'
+            +'<iframe ult="meme3" src="'+getMeme.meme3+'" allowFullScreen></iframe>'
+            +'<iframe ult="meme4" src="'+getMeme.meme4+'" allowFullScreen></iframe>'
+            +'<iframe ult="meme5" src="'+getMeme.meme5+'" allowFullScreen></iframe>'
+            +'<iframe ult="meme6" src="'+getMeme.meme6+'" allowFullScreen></iframe>';
+        
             document.querySelector('.movieInfo').innerHTML =  ''
             +'<a href="https://www.imdb.com/title/' + data.imdbID + '"><center><h2>'+ data.Title +'</h2>'
             +'<img ult="Poster" src="'+data.Poster+'"></center></a>'
@@ -69,3 +63,9 @@ function click() {
     })
 }
 document.getElementById('confirm').onclick = click;
+
+function box(){
+
+}
+
+box()
