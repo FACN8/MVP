@@ -12,6 +12,7 @@ body {
     flex-direction: column;
 }
 #searchDiv {
+    max-width: 600px;
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
