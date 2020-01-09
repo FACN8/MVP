@@ -2,17 +2,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
     flex-direction: column;
     background-image: url("./res/bg.webp");
-}
-.container {
-    display: flex;
-    justify-content: space-between  ;
-    flex-direction: row;
-}
-iframe {
-    height: 265px;
-    width: 480px;
 }
 .memePage1{
     padding: 10px;
@@ -31,20 +23,18 @@ iframe {
 }
 .movieInfo {
     visibility: hidden;
-    width: 500px;
+    width: 90%;
     padding-left: 8px;
     padding-right: 8px;
     border: dotted black 5px;
-    border-radius: 5px;
+    border-radius: 20px;
     font-size: 18px;
 }
 .boxOffice{
-    
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-
 }
 th, td {
     font-weight: unset;
